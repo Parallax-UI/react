@@ -1,0 +1,31 @@
+{
+  "name": "@parallax-ui/utils",
+  "version": "0.0.0",
+  "description": "Utilities for Parallax UI",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "typings": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parallax-UI/react.git"
+  },
+  "keywords": [
+    "utilities",
+    "react",
+    "parallax-ui"
+  ],
+  "author": "Dheeraj Singh Nagdali <dheerajsinghnagdali@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Parallax-UI/react/issues"
+  },
+  "homepage": "https://github.com/Parallax-UI/react#readme",
+  "scripts": {
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint .",
+    "build": "tsup"
+  },
+  "engines": {
+    "node": ">=18.7.0"
+  }
+}

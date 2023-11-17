@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "ms-vscode.vscode-typescript-next",
+    "wayou.vscode-todo-highlight",
+    "orta.vscode-twoslash-queries",
+    "wallabyjs.console-ninja",
+    "formulahendry.auto-rename-tag"
+  ]
+}

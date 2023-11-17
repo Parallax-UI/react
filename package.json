@@ -1,0 +1,39 @@
+{
+  "name": "parallax-ui",
+  "private": true,
+  "author": "Dheeraj Singh Nagdali <dheerajsinghnagdali@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parallax-UI/react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Parallax-UI/react/issues"
+  },
+  "homepage": "https://github.com/Parallax-UI/react#readme",
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "npm run lint --workspaces",
+    "lint:fix": "npm run lint:fix --workspaces",
+    "build": "npm run build --workspaces"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.2",
+    "@commitlint/config-conventional": "^18.4.2",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "3.1.0",
+    "tsup": "^7.3.0",
+    "typescript": "^5.2.2",
+    "husky": "^8.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

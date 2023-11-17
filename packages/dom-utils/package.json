@@ -1,0 +1,32 @@
+{
+  "name": "@parallax-ui/dom-utils",
+  "version": "0.0.0",
+  "description": "DOM utilities of Parallax UI",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "typings": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parallax-UI/react.git"
+  },
+  "keywords": [
+    "utilities",
+    "dom",
+    "react",
+    "parallax-ui"
+  ],
+  "author": "Dheeraj Singh Nagdali <dheerajsinghnagdali@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Parallax-UI/react/issues"
+  },
+  "homepage": "https://github.com/Parallax-UI/react#readme",
+  "scripts": {
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint .",
+    "build": "tsup"
+  },
+  "dependencies": {
+    "@parallax-ui/utils": "file:../utils"
+  }
+}

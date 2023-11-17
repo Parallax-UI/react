@@ -7,7 +7,8 @@
   "typings": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Parallax-UI/react.git"
+    "url": "git+https://github.com/Parallax-UI/react.git",
+    "directory": "packages/dom-utils"
   },
   "keywords": [
     "utilities",
@@ -24,7 +25,8 @@
   "scripts": {
     "lint:fix": "eslint --fix .",
     "lint": "eslint .",
-    "build": "tsup"
+    "build": "tsup",
+    "types:check": "tsc"
   },
   "dependencies": {
     "@parallax-ui/utils": "file:../utils"

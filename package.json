@@ -17,7 +17,9 @@
     "format:check": "prettier --check .",
     "lint": "npm run lint --workspaces",
     "lint:fix": "npm run lint:fix --workspaces",
-    "build": "npm run build --workspaces"
+    "build": "npm run build --workspaces",
+    "types:check": "npm run types:check --workspaces",
+    "tooling": "concurrently npm:lint npm:format:check npm:build npm:types:check"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.2",
@@ -25,13 +27,14 @@
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.0",
     "prettier": "3.1.0",
     "tsup": "^7.3.0",
-    "typescript": "^5.2.2",
-    "husky": "^8.0.0"
+    "typescript": "^5.2.2"
   },
   "workspaces": [
     "packages/*"

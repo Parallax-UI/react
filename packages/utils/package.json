@@ -20,6 +20,12 @@
   "bugs": {
     "url": "https://github.com/Parallax-UI/react/issues"
   },
+  "files": [
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/Parallax-UI/react#readme",
   "scripts": {
     "lint:fix": "eslint --fix .",

@@ -30,19 +30,19 @@ export function callEvery<TFn extends (...args: any[]) => any>(...fns: TFn[]) {
 export function noop() {}
 
 export function observer<TFn extends (...args: any[]) => any>() {
-  const callbacks = new Set<TFn>()
+  const observers = new Set<TFn>()
 
   function subscribe(cb: TFn) {
-    callbacks.add(cb)
+    observers.add(cb)
     return () => unsubscribe(cb)
   }
 
   function unsubscribe(cb: TFn) {
-    callbacks.delete(cb)
+    observers.delete(cb)
   }
 
   function notify(...args: Parameters<TFn>) {
-    callbacks.forEach((cb) => cb(...args))
+    observers.forEach((cb) => cb(...args))
   }
 
   return {

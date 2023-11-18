@@ -58,5 +58,13 @@ export function values<
   TValue extends Record<any, any>,
   TKey extends keyof TValue,
 >(value: TValue): TValue[TKey][] {
-  return Object.values(value)
+  const copiedValue = structuredClone(value)
+  return Object.values(copiedValue)
+}
+
+export function entries<TValue extends Record<any, any>>(
+  value: TValue,
+): [string, any][] {
+  const copiedValue = structuredClone(value)
+  return Object.entries(copiedValue)
 }

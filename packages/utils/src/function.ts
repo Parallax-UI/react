@@ -22,3 +22,32 @@ export function once<TFn extends (...args: any[]) => any>(cb: TFn) {
     }
   }
 }
+
+export function callEvery<TFn extends (...args: any[]) => any>(...fns: TFn[]) {
+  return (...args: Parameters<TFn>) => fns.forEach((fn) => fn(...args))
+}
+
+export function noop() {}
+
+export function observer<TFn extends (...args: any[]) => any>() {
+  const callbacks = new Set<TFn>()
+
+  function subscribe(cb: TFn) {
+    callbacks.add(cb)
+    return () => unsubscribe(cb)
+  }
+
+  function unsubscribe(cb: TFn) {
+    callbacks.delete(cb)
+  }
+
+  function notify(...args: Parameters<TFn>) {
+    callbacks.forEach((cb) => cb(...args))
+  }
+
+  return {
+    subscribe,
+    unsubscribe,
+    notify,
+  }
+}

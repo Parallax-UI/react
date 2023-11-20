@@ -1,7 +1,9 @@
-# Parallax-UI
+# Parallax UI for React
+
 Description of Project
 
 # Table of Contents
+
 - 📋 [Documentation](#documentation)
 - 🚀 [Features](#features)
 - 📦 [Installation](#installation)
@@ -9,20 +11,26 @@ Description of Project
 - 📝 [Contribution](#contribution)
 - ⚖️ [License](#license)
 
-# Documentation 
+# Documentation
+
 Documentation Description
 
 # Features
+
 Features Description
 
 # Installation
+
 Installation Instructions
 
 # Usage
+
 Usage Information
 
 # Contribution
+
 Contribution Guidelines
 
 # License
+
 License Information

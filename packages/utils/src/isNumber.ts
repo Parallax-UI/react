@@ -1,3 +1,3 @@
-export function isNumber(value: number) {
+export function isNumber(value: any): value is number {
   return typeof value === "number"
 }

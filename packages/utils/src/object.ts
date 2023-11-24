@@ -1,3 +1,4 @@
+import { isArray } from "./array"
 import { Prettify } from "./types"
 
 export function omit<
@@ -67,4 +68,8 @@ export function entries<TValue extends Record<any, any>>(
 ): [string, any][] {
   const copiedValue = structuredClone(value)
   return Object.entries(copiedValue)
+}
+
+export function isObject(value: any): value is Record<any, any> {
+  return typeof value === "object" ? (isArray(value) ? false : true) : false
 }

@@ -51,3 +51,7 @@ export function observer<TFn extends (...args: any[]) => any>() {
     notify,
   }
 }
+
+export function isFunction(value: any): value is (...args: any[]) => any {
+  return typeof value === "function"
+}

@@ -13,3 +13,15 @@ export function max(...values: number[]) {
 export function min(...values: number[]) {
   return Math.min(...values)
 }
+
+export function abs(value: number) {
+  return Math.abs(value)
+}
+
+export function ceil(value: number) {
+  return Math.ceil(value)
+}
+
+export function floor(value: number) {
+  return Math.floor(value)
+}

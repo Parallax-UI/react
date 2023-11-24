@@ -56,11 +56,11 @@ export function isFunction(value: any): value is (...args: any[]) => any {
   return typeof value === "function"
 }
 
-export function debounce(cb: (...args: any[]) => any, wait = 0) {
+export function debounce(cb: (...args: any[]) => any, ms = 0) {
   let cache: ReturnType<typeof setTimeout> | undefined = undefined
 
   clearTimeout(cache)
-  cache = setTimeout(cb, wait)
+  cache = setTimeout(cb, ms)
 
   return {
     flush: () => {
@@ -73,4 +73,12 @@ export function debounce(cb: (...args: any[]) => any, wait = 0) {
       cache = undefined
     },
   }
+}
+
+export const getId = ((id = 0) => {
+  return () => id++
+})()
+
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }

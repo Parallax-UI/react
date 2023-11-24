@@ -55,3 +55,22 @@ export function observer<TFn extends (...args: any[]) => any>() {
 export function isFunction(value: any): value is (...args: any[]) => any {
   return typeof value === "function"
 }
+
+export function debounce(cb: (...args: any[]) => any, wait = 0) {
+  let cache: ReturnType<typeof setTimeout> | undefined = undefined
+
+  clearTimeout(cache)
+  cache = setTimeout(cb, wait)
+
+  return {
+    flush: () => {
+      clearTimeout(cache)
+      cache = undefined
+      cb()
+    },
+    cancel: () => {
+      clearTimeout(cache)
+      cache = undefined
+    },
+  }
+}

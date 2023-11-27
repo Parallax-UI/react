@@ -82,3 +82,21 @@ export const getId = ((id = 0) => {
 export function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
+
+export function throttle(cb: (...args: any[]) => any, wait = 0) {
+  let cache: ReturnType<typeof setInterval> | undefined = undefined
+  clearInterval(cache)
+  cache = setInterval(cb, wait)
+
+  return {
+    flush: () => {
+      clearInterval(cache)
+      cache = undefined
+      cb()
+    },
+    cancel: () => {
+      clearInterval(cache)
+      cache = undefined
+    },
+  }
+}

@@ -6,11 +6,22 @@ export function isNumber(value: any): value is number {
   return typeof value === "number"
 }
 
-// Refactor to change to min/max functions
-export function isNumberInRange(
-  value: number,
-  min: number,
-  max: number,
-): boolean {
-  return typeof value === "number" && value >= min && value <= max
+export function max(...values: number[]) {
+  return Math.max(...values)
+}
+
+export function min(...values: number[]) {
+  return Math.min(...values)
+}
+
+export function abs(value: number) {
+  return Math.abs(value)
+}
+
+export function ceil(value: number) {
+  return Math.ceil(value)
+}
+
+export function floor(value: number) {
+  return Math.floor(value)
 }

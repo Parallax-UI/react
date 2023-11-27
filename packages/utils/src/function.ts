@@ -51,3 +51,34 @@ export function observer<TFn extends (...args: any[]) => any>() {
     notify,
   }
 }
+
+export function isFunction(value: any): value is (...args: any[]) => any {
+  return typeof value === "function"
+}
+
+export function debounce(cb: (...args: any[]) => any, ms = 0) {
+  let cache: ReturnType<typeof setTimeout> | undefined = undefined
+
+  clearTimeout(cache)
+  cache = setTimeout(cb, ms)
+
+  return {
+    flush: () => {
+      clearTimeout(cache)
+      cache = undefined
+      cb()
+    },
+    cancel: () => {
+      clearTimeout(cache)
+      cache = undefined
+    },
+  }
+}
+
+export const getId = ((id = 0) => {
+  return () => id++
+})()
+
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}

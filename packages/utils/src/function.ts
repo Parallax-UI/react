@@ -75,6 +75,32 @@ export function debounce(cb: (...args: any[]) => any, ms = 0) {
   }
 }
 
+export function throttle(cb: (...args: any[]) => any, ms = 0) {
+  let shouldWait = false;
+  let waitingArgs: any[] | null = null;
+
+  const timeoutFunction = () => {
+    if (waitingArgs !== null) {
+      cb(...waitingArgs)
+      waitingArgs = null;
+      setTimeout(timeoutFunction, ms);
+    } else {
+      shouldWait = false
+    }
+  };
+
+  return (...args: any[]) => {
+    if (shouldWait) {
+      waitingArgs = args
+      return
+    }
+
+    cb(...args)
+    shouldWait = true
+    setTimeout(timeoutFunction, ms)
+  }
+}
+
 export const getId = ((id = 0) => {
   return () => id++
 })()

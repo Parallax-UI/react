@@ -9,3 +9,7 @@ export function getClientRects<T extends Element>(element: T): DOMRectList {
 export function getParentElement<T extends Element>(element: T): Element | null {
   return element.parentElement;
 }
+
+export function getTagName<T extends Element>(element:T): string {
+  return element.tagName;
+}

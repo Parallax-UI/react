@@ -75,9 +75,12 @@ export function debounce(cb: (...args: any[]) => any, ms = 0) {
   }
 }
 
-export const getId = ((id = 0) => {
-  return () => id++
-})()
+export const generateId = (
+  (id = 0) =>
+  () => {
+    return id++
+  }
+)()
 
 export function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))

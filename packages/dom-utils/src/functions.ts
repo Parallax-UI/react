@@ -15,3 +15,9 @@ export function getParentElement<T extends Element>(
 export function getTagName<T extends Element>(element: T): string {
   return element.tagName
 }
+
+export function getComputedStyle<T extends Element>(
+  element: T,
+): CSSStyleDeclaration {
+  return window.getComputedStyle(element)
+}

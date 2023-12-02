@@ -21,3 +21,15 @@ export function getComputedStyle<T extends Element>(
 ): CSSStyleDeclaration {
   return window.getComputedStyle(element)
 }
+
+export function matches<T extends Element>(element: T, selector: string) {
+  return element.matches(selector)
+}
+
+export function focus<T extends HTMLElement>(element: T) {
+  return element.focus()
+}
+
+export function blur<T extends HTMLElement>(element: T) {
+  return element.blur()
+}

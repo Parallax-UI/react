@@ -6,19 +6,15 @@ export function getClientRects<T extends Element>(element: T): DOMRectList {
   return element.getClientRects()
 }
 
-export function getParentElement<T extends Element>(
-  element: T,
-): Element | null {
+export function getParentElement<T extends Element>(element: T) {
   return element.parentElement
 }
 
-export function getTagName<T extends Element>(element: T): string {
+export function getTagName<T extends Element>(element: T) {
   return element.tagName
 }
 
-export function getComputedStyle<T extends Element>(
-  element: T,
-): CSSStyleDeclaration {
+export function getComputedStyle<T extends Element>(element: T) {
   return window.getComputedStyle(element)
 }
 
@@ -73,7 +69,7 @@ export function getOffsetSize<T extends HTMLElement>(element: T) {
   }
 }
 
-export function getOffsetDimensions<T extends HTMLElement>(element: T) {
+export function getOffset<T extends HTMLElement>(element: T) {
   const { offsetLeft, offsetTop } = element
   const { offsetHeight, offsetWidth } = getOffsetSize(element)
   return {
@@ -121,5 +117,21 @@ export function enableDesignMode() {
   document.designMode = "on"
   return () => {
     document.designMode = "off"
+  }
+}
+
+export function getSize<T extends Element>(element: T) {
+  const { height, width } = getBoundingClientRect(element)
+  return {
+    height,
+    width,
+  }
+}
+
+export function getDimensions<T extends Element>(element: T) {
+  const { x, y } = getBoundingClientRect(element)
+  return {
+    x,
+    y,
   }
 }

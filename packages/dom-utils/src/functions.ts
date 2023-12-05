@@ -25,3 +25,15 @@ export function getComputedStyle<T extends Element>(
 export function matchMedia(query: string): MediaQueryList {
   return window.matchMedia(query)
 }
+
+export function toMediaQuery(
+  features: Record<string, string | number>,
+): string {
+  const queryFeatures = Object.entries(features)
+    .map(
+      ([feature, value]) =>
+        `(${feature}: ${typeof value === "number" ? value + "px" : value})`,
+    )
+    .join(" and ")
+  return queryFeatures
+}

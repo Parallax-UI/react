@@ -26,9 +26,7 @@ export function matchMedia(query: string): MediaQueryList {
   return window.matchMedia(query)
 }
 
-export function toMediaQuery(
-  features: Record<string, string | number>,
-): string {
+export function toMediaQuery(features: Record<string, string | number>) {
   const queryFeatures = Object.entries(features)
     .map(
       ([feature, value]) =>
@@ -38,6 +36,6 @@ export function toMediaQuery(
   return queryFeatures
 }
 
-export function toPx(value: number): string {
-  return `${value} px`
+export function toPx(value: number) {
+  return `${value}px`
 }

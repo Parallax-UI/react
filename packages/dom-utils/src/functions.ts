@@ -21,3 +21,7 @@ export function getComputedStyle<T extends Element>(
 ): CSSStyleDeclaration {
   return window.getComputedStyle(element)
 }
+
+export function matchMedia(query: string): MediaQueryList {
+  return window.matchMedia(query)
+}

@@ -37,3 +37,7 @@ export function toMediaQuery(
     .join(" and ")
   return queryFeatures
 }
+
+export function toPx(value: number): string {
+  return `${value} px`
+}

@@ -135,3 +135,41 @@ export function getDimensions<T extends Element>(element: T) {
     y,
   }
 }
+
+export function eventObserver() {
+  const subscriptions = new Set<() => void>()
+
+  function subscribe<
+    T extends EventTarget,
+    TListener extends EventListener | EventListenerObject,
+  >({
+    target,
+    listener,
+    eventName,
+    options,
+  }: {
+    target: T
+    listener: TListener
+    eventName: string
+    options?: boolean | AddEventListenerOptions
+  }) {
+    target.addEventListener(eventName, listener, options)
+    const unsubscribe = () => {
+      target.removeEventListener(eventName, listener, options)
+      subscriptions.delete(unsubscribe)
+    }
+
+    subscriptions.add(unsubscribe)
+    return unsubscribe
+  }
+
+  function unsubscribeAll() {
+    subscriptions.forEach((unsubscribe) => unsubscribe())
+    subscriptions.clear()
+  }
+
+  return {
+    subscribe,
+    unsubscribeAll,
+  }
+}

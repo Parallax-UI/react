@@ -103,3 +103,13 @@ export function throttle(cb: (...args: any[]) => any, wait = 0) {
     },
   }
 }
+
+export function computePercentage(
+  computedNumber: number,
+  computeWholeNumber: number,
+) {
+  if (computeWholeNumber === 0) {
+    return 0
+  }
+  return (computedNumber / computeWholeNumber) * 100
+}

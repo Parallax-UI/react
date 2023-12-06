@@ -135,3 +135,7 @@ export function getDimensions<T extends Element>(element: T) {
     y,
   }
 }
+
+export function supports(value: any) {
+  return value in window
+}

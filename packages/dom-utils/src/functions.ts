@@ -6,6 +6,14 @@ export function getClientRects<T extends Element>(element: T): DOMRectList {
   return element.getClientRects()
 }
 
+export function matchMedia(query: string): MediaQueryList {
+  return window.matchMedia(query)
+}
+
+export function toPx(value: number) {
+  return `${value}px`
+}
+
 export function getParentElement<T extends Element>(element: T) {
   return element.parentElement
 }

@@ -1,4 +1,4 @@
-export function clamp(value: number, min: number, max: number): number {
+export function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max)
 }
 
@@ -24,4 +24,16 @@ export function ceil(value: number) {
 
 export function floor(value: number) {
   return Math.floor(value)
+}
+
+export function round(value: number) {
+  return Math.round(value)
+}
+
+export function toInteger(value: string) {
+  return parseInt(value)
+}
+
+export function toFloat(value: string) {
+  return parseFloat(value)
 }

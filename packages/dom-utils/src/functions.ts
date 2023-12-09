@@ -164,7 +164,6 @@ export function eventObserver() {
     target.addEventListener(eventName, listener, options)
     const unsubscribe = () => {
       target.removeEventListener(eventName, listener, options)
-      subscriptions.delete(unsubscribe)
     }
 
     subscriptions.add(unsubscribe)

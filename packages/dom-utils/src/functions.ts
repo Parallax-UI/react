@@ -184,3 +184,12 @@ export function eventObserver() {
 export function supports(value: any) {
   return value in window
 }
+
+export function copy(
+  element: HTMLElement,
+  onCopy: (event: ClipboardEvent) => void,
+) {
+  element.addEventListener("copy", (event: ClipboardEvent) => {
+    onCopy(event)
+  })
+}

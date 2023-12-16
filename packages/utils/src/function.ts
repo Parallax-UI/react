@@ -1,3 +1,5 @@
+import { toString } from "."
+
 export function memorize<TFn extends (...args: any[]) => any>(cb: TFn) {
   const cache: Record<string, any> = {}
 
@@ -57,7 +59,8 @@ export function isFunction(value: any): value is (...args: any[]) => any {
 }
 
 export function debounce(cb: (...args: any[]) => any, ms = 0) {
-  let cache: ReturnType<typeof setTimeout> | undefined = undefined
+  let cache: ReturnType<typeof setTimeout> | string | number | undefined =
+    undefined
 
   clearTimeout(cache)
   cache = setTimeout(cb, ms)
@@ -87,7 +90,8 @@ export function sleep(ms: number) {
 }
 
 export function throttle(cb: (...args: any[]) => any, wait = 0) {
-  let cache: ReturnType<typeof setInterval> | undefined = undefined
+  let cache: ReturnType<typeof setInterval> | string | number | undefined =
+    undefined
   clearInterval(cache)
   cache = setInterval(cb, wait)
 
@@ -102,4 +106,15 @@ export function throttle(cb: (...args: any[]) => any, wait = 0) {
       cache = undefined
     },
   }
+}
+
+export function computePercentage(value: number, total: number) {
+  return (value * total) / 100
+}
+
+export function getErrorMessage(error: unknown) {
+  if (error instanceof Error) {
+    return error.message
+  }
+  return toString(error)
 }

@@ -1,3 +1,5 @@
+import { getErrorMessage } from "@parallax-ui/utils"
+
 export function getBoundingClientRect<T extends Element>(element: T): DOMRect {
   return element.getBoundingClientRect()
 }
@@ -183,4 +185,26 @@ export function eventObserver() {
 
 export function supports(value: any) {
   return value in window
+}
+
+export async function copyToClipboard({
+  value,
+  onError,
+  onSuccess,
+}: {
+  value: string
+  onError?: (message: string) => void
+  onSuccess?: () => void
+}): Promise<boolean> {
+  const hasClipboard = "clipboard" in navigator
+  if (!hasClipboard) return false
+
+  try {
+    await navigator.clipboard.writeText(value)
+    onSuccess?.()
+    return true
+  } catch (error) {
+    onError?.(getErrorMessage(error))
+    return false
+  }
 }
